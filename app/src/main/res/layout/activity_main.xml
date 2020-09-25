@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.Appbar">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:layout_scrollFlags="scroll|enterAlways"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"/>
+        <!--스크롤되지만 button(나만)빼고,무너지지 않고(가려지지않고) 올라감-->
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+
+    <!--스크롤이 가능 한 뷰들-->
+    <!--Nested Scroll View  or  Recycler View 만 사용가능-->
+    <!--그래서 하나이상의 뷰를 보여주고싶을 경우 LinearLayout 을 사용해서 뷰를 더 넣어줌 -->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">  <!--스크롤뷰안에는 뷰가 오직 하나만 놓을수잇음-->
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">  <!--높이는 오직 wrap_content-->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:background="#ffff0000"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:background="#ff00ff00"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:background="#ff0000ff"/>
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+
+
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
